@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>High-Performance Hockey Yearly Training Plan SPA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Custom scrollbar for a cleaner look (optional) */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #0A2463; /* Dark Blue */
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3E8E7E; /* Bright Teal */
+        }
+        /* Inter font - Tailwind will pick this up if installed, or use a Google Font link */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FDFDFD; /* Primary Background */
+        }
+        .active-nav {
+            background-color: #3E8E7E; /* Bright Teal */
+            color: white !important;
+        }
+        .active-tab {
+            color: #3E8E7E !important; /* Bright Teal */
+            border-bottom-color: #3E8E7E !important;
+        }
+        /* Stepper line - REMOVED as per user request */
+        /*
+        .stepper-line {
+            position: absolute;
+            left: 19px; 
+            top: 40px; 
+            bottom: -20px; 
+            width: 2px;
+            background-color: #0A2463; 
+            z-index: 0;
+        }
+        .stepper-item:last-child .stepper-line {
+            display: none; 
+        }
+        */
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="text-slate-700">
+
+    <header id="main-header" class="bg-[#0A2463] text-white sticky top-0 z-50 shadow-md">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0">
+                    <h1 class="text-xl sm:text-2xl font-bold">Section A.1. Performance Planning</h1>
+                </div>
+                <nav class="hidden md:flex space-x-2">
+                    <a href="#philosophy" class="nav-link px-3 py-2 rounded-md text-sm font-medium hover:bg-[#3E8E7E] transition-colors">Philosophy</a>
+                    <a href="#yearly-plan" class="nav-link px-3 py-2 rounded-md text-sm font-medium hover:bg-[#3E8E7E] transition-colors">Yearly Plan</a>
+                    <a href="#tools" class="nav-link px-3 py-2 rounded-md text-sm font-medium hover:bg-[#3E8E7E] transition-colors">Tools</a>
+                    <a href="#considerations" class="nav-link px-3 py-2 rounded-md text-sm font-medium hover:bg-[#3E8E7E] transition-colors">Considerations</a>
+                    <a href="#progress" class="nav-link px-3 py-2 rounded-md text-sm font-medium hover:bg-[#3E8E7E] transition-colors">Progress</a>
+                </nav>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-white hover:text-[#3E8E7E] focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="md:hidden hidden bg-[#0A2463] pb-2">
+            <a href="#philosophy" class="nav-link block px-4 py-2 text-sm hover:bg-[#3E8E7E] transition-colors">Philosophy</a>
+            <a href="#yearly-plan" class="nav-link block px-4 py-2 text-sm hover:bg-[#3E8E7E] transition-colors">Yearly Plan</a>
+            <a href="#tools" class="nav-link block px-4 py-2 text-sm hover:bg-[#3E8E7E] transition-colors">Tools</a>
+            <a href="#considerations" class="nav-link block px-4 py-2 text-sm hover:bg-[#3E8E7E] transition-colors">Considerations</a>
+            <a href="#progress" class="nav-link block px-4 py-2 text-sm hover:bg-[#3E8E7E] transition-colors">Progress</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto p-4 sm:p-6 lg:p-8">
+
+        <section id="philosophy" class="pt-24 -mt-20 mb-12">
+            <h2 class="text-3xl font-bold text-[#0A2463] mb-6">Overall Philosophy</h2>
+            <div class="bg-white p-6 rounded-xl shadow-lg border border-slate-200 space-y-4">
+                <p>This plan uses a structured approach to build skills, tactics, fitness, mindset, and team chemistry for top performance. It follows Hockey Canada’s Long-Term Player Development model, focusing on players in the later "Train to Train" or "Train to Compete" stages. Key priorities include player health, recovery, long-term growth, and strong habits. The goal is to lead, develop, and promote positive hockey experiences.</p>
+            </div>
+        </section>
+
+        <section id="yearly-plan" class="pt-24 -mt-20 mb-12">
+            <h2 class="text-3xl font-bold text-[#0A2463] mb-8">Yearly Plan: September - March</h2>
+            <div class="relative space-y-8">
+                <div class="stepper-item flex items-start space-x-4 relative">
+                    <div class="flex-shrink-0 w-10 h-10 bg-[#0A2463] text-white rounded-full flex items-center justify-center text-lg font-bold z-10">1</div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg border border-slate-200 flex-grow">
+                        <h3 class="text-xl font-semibold text-[#0A2463] mb-1">SEPTEMBER: Foundation & Formation</h3>
+                        <p class="text-sm text-[#F4A261] font-medium mb-3">(Pre-Season/Early Season) - "Forming" Stage</p>
+                        <h4 class="text-md font-semibold text-[#0A2463] mt-3 mb-1">Overall Goals & Objectives:</h4>
+                        <ul class="list-custom pl-5 space-y-1 text-sm">
+                            <li>Establish team identity, culture (vision, core values, norms), and expectations aligned with the "Canadian Way Principles".</li>
+                            <li>Finalize player evaluations and team selection based on a comprehensive assessment of Talent, Character, Competitiveness, and Expectations.</li>
+                            <li>Develop a strong aerobic base and foundational strength, guided by S&C coach collaboration.</li>
+                            <li>Introduce core team systems (offensive, defensive, special teams).</li>
+                            <li>Foster initial team cohesion ("Forming" stage) and open communication channels, adapting to Gen Z athlete needs.</li>
+                            <li>Introduce the concept of "High Performance Habits" and Personal Development Plans (PDPs).</li>
+                        </ul>
+                        <h4 class="text-md font-semibold text-[#0A2463] mt-3 mb-1">Player Selection / Tryouts (Weeks 1-3):</h4>
+                        <p class="text-xs text-slate-500 mb-1"><strong>Process:</strong> Minimum of four prep skates/skill sessions prior to formal evaluations. Formal evaluations to include a minimum of one skills session, one small-area games session, and one formal game.</p>
+                        <p class="text-xs text-slate-500 mb-1"><strong>Focus:</strong> Technical, Tactical (Hockey Sense), Physical, Mental/Character.</p>
+                         <details class="text-sm mt-2">
+                            <summary class="text-[#3E8E7E] cursor-pointer hover:underline">Show Full Tryout Details...</summary>
+                            <div class="mt-2 space-y-2 text-xs">
+                                <p><strong>Technical:</strong> Skating (agility, speed, transitions), Puck Skills (control, protection, creativity), Passing (accuracy, reception), Shooting (quick release, accuracy), Defensive Skills (angling, stick positioning, 1v1) – using drills from "Player Assessment Plan #1".</p>
+                                <p><strong>Tactical (Hockey Sense):</strong> Decision-making in SAGs and scrimmages, reading play, positional understanding.</p>
+                                <p><strong>Physical:</strong> On-ice compete level, work rate. Off-ice baseline fitness testing (e.g., Standing Long Jump, 40m sprint, Pull-ups, Beep Test, Pro-Agility).</p>
+                                <p><strong>Mental/Character:</strong> Coachability, response to adversity, work ethic, team-first attitude, "Canadian Way Principles" (e.g., win battles, stop on pucks, manage pucks).</p>
+                                <p><strong>Evaluation Tools:</strong> Hockey Canada Player Evaluation Sheet (1-4 scale), detailed KEPs for drills.</p>
+                                <p><strong>Communication:</strong> Clear criteria communicated pre-tryout. Post-tryout, individual meetings to discuss roles, expectations, and PDP initiation. For those not selected, provide constructive feedback where possible.</p>
+                            </div>
+                        </details>
+                       
+                    </div>
+                </div>
+
+                <div class="stepper-item flex items-start space-x-4 relative">
+                    <div class="flex-shrink-0 w-10 h-10 bg-[#0A2463] text-white rounded-full flex items-center justify-center text-lg font-bold z-10">2</div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg border border-slate-200 flex-grow">
+                        <h3 class="text-xl font-semibold text-[#0A2463] mb-1">OCTOBER: System Implementation & Early Competition</h3>
+                        <p class="text-sm text-[#F4A261] font-medium mb-3">(Regular Season) - "Storming/Norming" Stage</p>
+                        <h4 class="text-md font-semibold text-[#0A2463] mt-3 mb-1">Overall Goals & Objectives:</h4>
+                        <ul class="list-custom pl-5 space-y-1 text-sm">
+                            <li>Refine and solidify team systems in competitive situations.</li>
+                            <li>Improve consistency in execution of technical skills and "Canadian Way Habits."</li>
+                        
+                        </ul>
+                         <details class="text-sm mt-2">
+                            <summary class="text-[#3E8E7E] cursor-pointer hover:underline">Show Full October Details...</summary>
+                            <div class="mt-2 space-y-2 text-xs">
+                            
+                                <p><strong>Player Evaluation:</strong> Ongoing evaluation in practices/games against established criteria. Individual meetings to provide feedback (PDP review) and adjust roles.</p>
+                                <p><strong>Practices / Games:</strong> Practices: 3-4 on-ice sessions/week (75-90 min). Reduced volume, increased intensity, game-specific scenarios. Focus on tactical execution, special teams, correcting errors (video-informed). Games: 1-2 league games/week. Focus on applying systems, competing, adapting.</p>
+                                <p><strong>Technical / Tactical / Team Play Development:</strong> Technical: Refinement of core skills at speed and under pressure. Position-specific skill development. Tactical: Deeper understanding of systems. Introduce variations (PP breakouts, PK pressure). Focus on transitions. Heavy use of video analysis (team and individual clips). Team Play: Improving on-ice communication, support, anticipation. Executing set plays. Reinforce "Championship Habits."</p>
+                                <p><strong>Physical Performance:</strong> Off-Ice (2-3 sessions/week - S&C Coach Led): Maintain strength/power, speed/agility, core/mobility. Adjust volume based on game load. Emphasize recovery strategies (sleep, nutrition, hydration). Communication: Regular updates to S&C coach on game intensity, player fatigue. On-Ice: Game-intensity drills, SAGs. Monitor player load.</p>
+                                <p><strong>Mental Performance:</strong> Focus/Concentration: Techniques for full game duration. Imagery/Visualization: Introduce basic visualization (successful plays). Emotional Control: Strategies for managing pressure (breathing techniques, mental anchors). Confidence: Build self-confidence and trust in teammates. Reinforce understanding of roles and their value ("4 Wheel Drive Jeep" concept). Gen Z: Continue brief, clear communication. Focus on process in feedback.</p>
+                                <p><strong>Team Development:</strong> Storming/Norming: Address conflicts constructively. Establish clear norms. Activities: Regular team meetings (discuss progress, challenges, opponents), player-led activities (e.g., warm-ups), line/pair meetings, cooperation tasks. Reinforce team culture and values. Review PDP goals. Encourage player leadership.</p>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+                
+                 <div class="stepper-item flex items-start space-x-4 relative">
+                    <div class="flex-shrink-0 w-10 h-10 bg-[#0A2463] text-white rounded-full flex items-center justify-center text-lg font-bold z-10">3</div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg border border-slate-200 flex-grow">
+                        <h3 class="text-xl font-semibold text-[#0A2463] mb-1">NOVEMBER: Refinement & Adaptation</h3>
+                        <p class="text-sm text-[#F4A261] font-medium mb-3">(Regular Season) - "Norming/Performing" Stage</p>
+                        <details class="text-sm mt-2">
+                            <summary class="text-[#3E8E7E] cursor-pointer hover:underline">Show Full November Details...</summary>
+                            <div class="mt-2 space-y-2 text-xs">
+                               
+                                <p><strong>Overall Goals & Objectives:</strong> Achieve higher consistency in team performance and "Canadian Way Habits." Adapt tactical approaches based on opponents. Maintain physical fitness and minimize injury risk through S&C collaboration. Strengthen mental toughness, resilience, and emotional control. Further develop leadership within the team.</p>
+                                <p><strong>Player Evaluation:</strong> Continuous performance monitoring. PDP check-ins.</p>
+                                <p><strong>Practices / Games:</strong> Practices: 3 on-ice sessions/week (75-90 min). High-intensity, game-like drills, special teams refinement, address weaknesses. Introduce new wrinkles/adjustments to systems. Games: 1-2 league games/week. Focus on executing game plans, in-game adjustments.</p>
+                                <p><strong>Technical / Tactical / Team Play Development:</strong> Technical: Mastery of core skills under pressure. Advanced techniques (deceptive shooting, puck protection). Tactical: Advanced understanding of systems, adjustments. Develop "Hockey IQ" (reading play, anticipation). Strategies for key situations (5v6, 6v5). Increased video for pre-scouting. Team Play: Seamless execution. Stronger unit cohesion. Effective communication and problem-solving on bench/ice.</p>
+                                <p><strong>Physical Performance:</strong> Off-Ice (2-3 sessions/week - S&C Coach Led): Power development (plyos, Olympic lifts if appropriate), maintain strength, speed, agility, recovery. Individualized adjustments. Communication: Discuss specific player needs (e.g., "getting knocked off pucks too easily") with S&C coach for targeted interventions. On-Ice: Drills emphasizing quickness, reaction, sustained high-intensity. Proactive injury prevention.</p>
+                                <p><strong>Mental Performance:</strong> Emotional Control: Composure in high-stakes situations. Self-Talk: Develop effective positive self-talk and thought-stopping. Coping Strategies: For setbacks and adversity (embrace failure, learn from it – "Black Box Thinking" concept). Motivation: Maintain focus through the grind. Gen Z: Personalize and customize approaches to build confidence. Help them discover meaning in their roles.</p>
+                                <p><strong>Team Development:</strong> Norming/Performing: Solidify roles and norms. Enhance trust and collaboration. Activities: Leadership development workshops/discussions (e.g., what makes a good leader, player-led standards meetings), review/adjust team goals, activities for morale. Encourage peer accountability.</p>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+                <div class="stepper-item flex items-start space-x-4 relative">
+                    <div class="flex-shrink-0 w-10 h-10 bg-[#0A2463] text-white rounded-full flex items-center justify-center text-lg font-bold z-10">4</div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg border border-slate-200 flex-grow">
+                        <h3 class="text-xl font-semibold text-[#0A2463] mb-1">DECEMBER: Sustaining Performance & Managing Load</h3>
+                        <p class="text-sm text-[#F4A261] font-medium mb-3">(Regular Season)</p>
+                         <details class="text-sm mt-2">
+                            <summary class="text-[#3E8E7E] cursor-pointer hover:underline">Show Full December Details...</summary>
+                            <div class="mt-2 space-y-2 text-xs">
+                               
+                                <p><strong>Overall Goals & Objectives:</strong> Maintain high performance leading into holiday break. Effectively manage player workload and fatigue (critical communication with S&C coach). Fine-tune strategies. Reinforce mental skills and team unity.</p>
+                                <p><strong>Player Evaluation:</strong> Performance reviews and PDP check-ins before break.</p>
+                                <p><strong>Practices / Games:</strong> Practices: 2-3 on-ice sessions/week (60-75 min). Reduced volume, maintain intensity. Sharp execution, special teams, tactical refreshers. More recovery-focused towards break. Games: 1-2 league games/week. Focus on consistent execution, managing energy.</p>
+                                <p><strong>Technical / Tactical / Team Play Development:</strong> Technical: Maintain skill sharpness. Efficiency of movement/decision-making. Tactical: Review/reinforce systems. Analyze opponent trends. Team Play: Maintain strong communication/cohesion. Role clarity.</p>
+                                <p><strong>Physical Performance:</strong> Off-Ice (2 sessions/week - S&C Coach Led): Maintenance of strength/power. Increased emphasis on active recovery, mobility, flexibility. Monitor for overtraining. Guidance on staying active during break. On-Ice: Shorter, sharper practices. Nutrition: Education on managing diet during holidays.</p>
+                                <p><strong>Mental Performance:</strong> Strategies for staying focused/motivated during distractions. Revisit goals. Stress management. Gratitude/reflection. Gen Z: Provide reassurance and trust. Reinforce belonging cues.</p>
+                                <p><strong>Team Development:</strong> Performing Stage: Team activities to celebrate first half, build camaraderie. Clear communication for break/return. Focus on "Championship Habits".</p>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+                <div class="stepper-item flex items-start space-x-4 relative">
+                    <div class="flex-shrink-0 w-10 h-10 bg-[#0A2463] text-white rounded-full flex items-center justify-center text-lg font-bold z-10">5</div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg border border-slate-200 flex-grow">
+                        <h3 class="text-xl font-semibold text-[#0A2463] mb-1">JANUARY: Ramping Up & Playoff Preparation</h3>
+                        <p class="text-sm text-[#F4A261] font-medium mb-3">(Regular Season) - "Performing" Stage</p>
+                         <details class="text-sm mt-2">
+                            <summary class="text-[#3E8E7E] cursor-pointer hover:underline">Show Full January Details...</summary>
+                            <div class="mt-2 space-y-2 text-xs">
+                              
+                                <p><strong>Overall Goals & Objectives:</strong> Regain peak condition. Elevate intensity/focus for playoff push. Refine all aspects of team play to high execution level. Build momentum. Solidify playoff positioning.</p>
+                                <p><strong>Player Evaluation:</strong> N/A for selection. Focus on optimizing current roster and individual contributions to team success. PDPs are key.</p>
+                                <p><strong>Practices / Games:</strong> Practices: 3-4 on-ice sessions/week (75-90 min). Increased intensity/competitiveness. Focus on high-pressure situations, special teams excellence, playoff-style hockey. Games: 1-2 critical league games/week. Focus on winning key matchups.</p>
+                                <p><strong>Technical / Tactical / Team Play Development:</strong> Technical: Skills sharp, consistent, precise under pressure. "Game-breaking" skills. Tactical: Mastery of systems, rapid in-game adjustments. Detailed pre-scouting, specific game plans. Practicing scenarios (protecting lead, tying game). Team Play: Peak cohesion. Exceptional communication, trust, anticipation. Flawless execution of complex plays.</p>
+                                <p><strong>Physical Performance:</strong> Off-Ice (2-3 sessions/week - S&C Coach Led): Maintain peak power/strength. Emphasis on speed, agility, explosive movements. Diligent recovery. Communication: S&C coach adapts plan for "Preparation for Playoffs" phase. On-Ice: High-tempo practices simulating playoff intensity. Injury Management: Quick, effective management.</p>
+                                <p><strong>Mental Performance:</strong> Develop "Playoff Mindset": heightened focus, resilience, determination. Advanced visualization for critical moments. Strategies for increased pressure. Composure/discipline in emotionally charged games. "Deliberate Practice" of mental skills.</p>
+                                <p><strong>Team Development:</strong> Performing Stage: Reinforce team identity and belief. Leadership stepping up. Strong sense of urgency/commitment. Final push team-building/motivational sessions. Connect to team vision and values.</p>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+                <div class="stepper-item flex items-start space-x-4 relative">
+                    <div class="flex-shrink-0 w-10 h-10 bg-[#0A2463] text-white rounded-full flex items-center justify-center text-lg font-bold z-10">6</div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg border border-slate-200 flex-grow">
+                        <h3 class="text-xl font-semibold text-[#0A2463] mb-1">FEBRUARY: Peaking & Playoff Mindset</h3>
+                        <p class="text-sm text-[#F4A261] font-medium mb-3">(Late Regular Season / Early Playoffs) - Peak "Performing"</p>
+                         <details class="text-sm mt-2">
+                            <summary class="text-[#3E8E7E] cursor-pointer hover:underline">Show Full February Details...</summary>
+                            <div class="mt-2 space-y-2 text-xs">
+                                
+                                <p><strong>Overall Goals & Objectives:</strong> Achieve peak team performance. Secure best playoff seeding or begin playoffs. Fine-tune all elements for playoff intensity. Ensure all players physically/mentally prepared. Foster unwavering belief.</p>
+                                <p><strong>Player Evaluation:</strong> Focus on role execution and contribution to team success.</p>
+                                <p><strong>Practices / Games:</strong> Practices: 2-3 on-ice sessions/week (60-75 min). High intensity, shorter duration. Opponent prep, special teams, sharpness. "Quality over quantity". Games: Crucial late-season or early playoff rounds. Focus on precise execution, adapting, winning.</p>
+                                <p><strong>Technical / Tactical / Team Play Development:</strong> Technical: Flawless execution under extreme pressure. Minimize errors. Tactical: Deep understanding of opponent tendencies, tailored game plans. Execute multiple strategies, adjust on the fly. Mastery of situational play. Use of timeouts effectively. Team Play: Ultimate synergy/trust. Unselfish play. Resilience.</p>
+                                <p><strong>Physical Performance:</strong> Off-Ice (1-2 sessions/week - S&C Coach Led): Primarily recovery, mobility, maintaining power/speed. Very short, sharp workouts. Individualized. Strict adherence to nutrition, hydration, sleep. On-Ice: Short, intense, focused practices. Prioritize rest/recovery.</p>
+                                <p><strong>Mental Performance:</strong> Peak mental toughness: perform under max pressure, bounce back. Strong belief/confidence. Effective arousal regulation. "One shift, one period, one game at a time" mentality. Gen Z: Continued positive reinforcement, focus on their contributions and value.</p>
+                                <p><strong>Team Development:</strong> Peak Performing: Strong leadership (coach and player). Reinforce the "why." Positive, supportive, determined environment. "The time is now - not the past".</p>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+                <div class="stepper-item flex items-start space-x-4 relative">
+                    <div class="flex-shrink-0 w-10 h-10 bg-[#0A2463] text-white rounded-full flex items-center justify-center text-lg font-bold z-10">7</div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg border border-slate-200 flex-grow">
+                        <h3 class="text-xl font-semibold text-[#0A2463] mb-1">MARCH: Championship Phase</h3>
+                        <p class="text-sm text-[#F4A261] font-medium mb-3">(Playoffs) - "Performing/Adjourning"</p>
+                         <details class="text-sm mt-2">
+                            <summary class="text-[#3E8E7E] cursor-pointer hover:underline">Show Full March Details...</summary>
+                            <div class="mt-2 space-y-2 text-xs">
+                                
+                                <p><strong>Overall Goals & Objectives:</strong> Win championships. Perform at absolute peak. Demonstrate resilience, adaptability, composure under highest pressure. Leave everything on the ice.</p>
+                                <p><strong>Player Evaluation:</strong> N/A for selection.</p>
+                                <p><strong>Practices / Games:</strong> Practices: 1-2 on-ice sessions/week (45-60 min) or as needed. Highly opponent-specific. Tactical walkthroughs, special teams adjustments, maintain sharpness/energy. Emphasis on rest/recovery. Games: Playoff series. Focus: Winning.</p>
+                                <p><strong>Technical / Tactical / Team Play Development:</strong> Technical: Consistent, error-free execution. Making right play at right time. Tactical: Brilliant execution of game plans. Exploit opponent weaknesses. Swift, effective in-game adjustments. Team Play: Unified, synchronized effort. Sacrifice for team. Exceptional resilience.</p>
+                                <p><strong>Physical Performance:</strong> Off-Ice (S&C Coach Led): Almost entirely recovery: active recovery, stretching, massage, nutrition, hydration, sleep. Brief, light activation workouts. Manage fatigue/injuries. On-Ice: Conserve energy, maintain peak readiness.</p>
+                                <p><strong>Mental Performance:</strong> Unshakeable confidence/belief. Laser focus. Thrive under pressure. Emotional control. Draw on all mental skills training. For Gen Z, reinforce their journey and growth.</p>
+                                <p><strong>Team Development:</strong> Performing/Adjourning: Culmination of team building. Strong, unified leadership. Every player embraces role. Post-Season (Adjourning): Debrief, celebrate successes (team & individual using PDPs), plan for off-season. Manage emotions of season ending.</p>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="tools" class="pt-24 -mt-20 mb-12">
+            <h2 class="text-3xl font-bold text-[#0A2463] mb-8">Key Evaluation & Tracking Tools</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-slate-200">
+                    <h3 class="text-lg font-semibold text-[#0A2463] mb-3">Assessment & Planning</h3>
+                    <ul class="list-custom pl-5 space-y-2 text-sm">
+                        <li><strong>Hockey Canada Player Assessment Plans & Tracking Sheet:</strong> Standardized drills and rating scales for tryouts and in-season technical/tactical assessment.</li>
+                        <li><strong>Personal Development Plan (PDP):</strong> Comprehensive tool for goal setting (SMARTER) and tracking across Hockey, Academics, S&C, Intangibles/Leadership, Mental Performance, Life.</li>
+                        <li><strong>Self-Evaluation Radar:</strong> Visual tool for players to self-assess across Mental, Tactical, Physical, and Emotional sectors.</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-slate-200">
+                    <h3 class="text-lg font-semibold text-[#0A2463] mb-3">Performance & Management</h3>
+                    <ul class="list-custom pl-5 space-y-2 text-sm">
+                        <li><strong>S&C Communication Loop & Monthly Workload Plan:</strong> Essential for managing physical load and optimizing off-ice training.</li>
+                        <li><strong>Video Analysis:</strong> For technical correction, tactical understanding, and providing player feedback.</li>
+                        <li><strong>Game Cards:</strong> For in-game tracking of lines, special teams, and key observations.</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-slate-200">
+                    <h3 class="text-lg font-semibold text-[#0A2463] mb-3">Development Frameworks</h3>
+                    <ul class="list-custom pl-5 space-y-2 text-sm">
+                        <li><strong>Team Building Framework:</strong> Using Tuckman's stages to guide activities for social and task cohesion throughout the season.</li>
+                        <li><strong>Mental Skills Implementation Strategies:</strong> Specific techniques for goal setting, emotional control, imagery, self-talk, and deliberate practice, tailored for Gen Z.</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-slate-200">
+                    <h3 class="text-lg font-semibold text-[#0A2463] mb-3">Culture & Habits</h3>
+                    <ul class="list-custom pl-5 space-y-2 text-sm">
+                        <li><strong>Leadership Principles:</strong> Framework for coaches to build connection, motivate, partner with, and care for players to foster leadership.</li>
+                        <li><strong>Habit Formation & Tracking:</strong> Identifying and reinforcing key on-ice ("Canadian Way") and off-ice (preparation, recovery) habits.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="considerations" class="pt-24 -mt-20 mb-12">
+            <h2 class="text-3xl font-bold text-[#0A2463] mb-8">Important Considerations</h2>
+            <div>
+                <div class="border-b border-slate-300 mb-6">
+                    <nav class="-mb-px flex space-x-4 sm:space-x-8" aria-label="Tabs">
+                        <button class="tab-button active-tab whitespace-nowrap py-3 px-1 border-b-2 font-medium text-sm text-slate-600 hover:text-[#3E8E7E] border-transparent hover:border-[#3E8E7E]" data-tab="individualization">Individualization</button>
+                        <button class="tab-button whitespace-nowrap py-3 px-1 border-b-2 font-medium text-sm text-slate-600 hover:text-[#3E8E7E] border-transparent hover:border-[#3E8E7E]" data-tab="flexibility">Flexibility</button>
+                        <button class="tab-button whitespace-nowrap py-3 px-1 border-b-2 font-medium text-sm text-slate-600 hover:text-[#3E8E7E] border-transparent hover:border-[#3E8E7E]" data-tab="communication">Communication</button>
+                        <button class="tab-button whitespace-nowrap py-3 px-1 border-b-2 font-medium text-sm text-slate-600 hover:text-[#3E8E7E] border-transparent hover:border-[#3E8E7E]" data-tab="recovery">Recovery</button>
+                        <button class="tab-button whitespace-nowrap py-3 px-1 border-b-2 font-medium text-sm text-slate-600 hover:text-[#3E8E7E] border-transparent hover:border-[#3E8E7E]" data-tab="environment">Environment</button>
+                        <button class="tab-button whitespace-nowrap py-3 px-1 border-b-2 font-medium text-sm text-slate-600 hover:text-[#3E8E7E] border-transparent hover:border-[#3E8E7E]" data-tab="ltpd">LTPD Alignment</button>
+                    </nav>
+                </div>
+                <div id="tab-content" class="space-y-6">
+                    <div id="individualization-content" class="tab-pane bg-white p-6 rounded-xl shadow-lg border border-slate-200">
+                        <h3 class="text-lg font-semibold text-[#0A2463] mb-2">Individualization</h3>
+                        <p class="text-sm">Adapt approaches for individual player needs, leveraging PDPs. Recognize that each athlete learns and develops differently, requiring personalized coaching and support to maximize their potential.</p>
+                    </div>
+                    <div id="flexibility-content" class="tab-pane hidden bg-white p-6 rounded-xl shadow-lg border border-slate-200">
+                        <h3 class="text-lg font-semibold text-[#0A2463] mb-2">Flexibility</h3>
+                        <p class="text-sm">This plan is a template; adjust based on team progress, injuries, schedule, and unforeseen circumstances. A rigid plan can hinder development; adaptability is key to navigating a long season successfully.</p>
+                    </div>
+                    <div id="communication-content" class="tab-pane hidden bg-white p-6 rounded-xl shadow-lg border border-slate-200">
+                        <h3 class="text-lg font-semibold text-[#0A2463] mb-2">Communication</h3>
+                        <p class="text-sm">Open, consistent, clear, brief, and positive communication is paramount between all stakeholders (players, coaches, parents, S&C staff). Effective communication builds trust and ensures everyone is aligned.</p>
+                    </div>
+                    <div id="recovery-content" class="tab-pane hidden bg-white p-6 rounded-xl shadow-lg border border-slate-200">
+                        <h3 class="text-lg font-semibold text-[#0A2463] mb-2">Recovery</h3>
+                        <p class="text-sm">A critical component for sustained performance and injury prevention. Emphasize sleep, nutrition, hydration, and active recovery strategies throughout the season.</p>
+                    </div>
+                    <div id="environment-content" class="tab-pane hidden bg-white p-6 rounded-xl shadow-lg border border-slate-200">
+                        <h3 class="text-lg font-semibold text-[#0A2463] mb-2">Enjoyment & Positive Environment</h3>
+                        <p class="text-sm">Foster a supportive, respectful, and enjoyable atmosphere to enhance motivation, learning, and team cohesion, especially crucial for Gen Z athletes. Positive experiences contribute to long-term love of the game.</p>
+                    </div>
+                    <div id="ltpd-content" class="tab-pane hidden bg-white p-6 rounded-xl shadow-lg border border-slate-200">
+                        <h3 class="text-lg font-semibold text-[#0A2463] mb-2">LTPD Alignment</h3>
+                        <p class="text-sm">Ensure all training, competition, and recovery demands are appropriate for the athletes' developmental stage according to Hockey Canada's Long-Term Player Development model. This promotes holistic development and reduces burnout.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="progress" class="pt-24 -mt-20 mb-12">
+            <h2 class="text-3xl font-bold text-[#0A2463] mb-8">Progress Tracking (Sample)</h2>
+            <div class="bg-white p-6 rounded-xl shadow-lg border border-slate-200">
+                <div class="mb-6">
+                    <label for="player-select" class="block text-sm font-medium text-[#0A2463] mb-1">Select Player/View:</label>
+                    <select id="player-select" class="block w-full max-w-xs p-2 border border-slate-300 rounded-md shadow-sm focus:ring-[#3E8E7E] focus:border-[#3E8E7E] sm:text-sm">
+                        <option value="playerA">Player A</option>
+                        <option value="playerB">Player B</option>
+                        <option value="teamAverage">Team Average</option>
+                    </select>
+                </div>
+                <div class="chart-container relative w-full max-w-xl mx-auto h-80 sm:h-96">
+                    <canvas id="progressRadarChart"></canvas>
+                </div>
+            </div>
+
+            <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-slate-200">
+                    <h3 class="text-lg font-semibold text-[#0A2463] mb-2">Skill Development</h3>
+                    <p class="text-sm">Tracking improvements in core technical skills (skating, puck handling, shooting, passing) through targeted drills and game application.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-slate-200">
+                    <h3 class="text-lg font-semibold text-[#0A2463] mb-2">Physical Conditioning</h3>
+                    <p class="text-sm">Monitoring strength, speed, agility, and endurance gains based on S&C program adherence and on-ice performance metrics.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-slate-200">
+                    <h3 class="text-lg font-semibold text-[#0A2463] mb-2">Tactical Understanding</h3>
+                    <p class="text-sm">Assessing growth in game sense, positional play, system comprehension, and decision-making in various game situations.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-slate-200">
+                    <h3 class="text-lg font-semibold text-[#0A2463] mb-2">Mental Fortitude</h3>
+                    <p class="text-sm">Observing development in focus, resilience, coachability, leadership, and overall contribution to team culture and performance.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-[#0A2463] text-white text-center p-6 mt-12">
+        <p class="text-sm">&copy;2025 - Carlee Campbell HP1 Post Task - Player Evaluation & Selection (Section A Question 1).
+
+This is a conceptual representation for certification purposes.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Mobile Menu Toggle
+            const menuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (menuButton && mobileMenu) {
+                menuButton.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+
+            // Smooth scroll for nav links & close mobile menu on click
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                    if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                });
+            });
+
+            // Active Nav Link Highlighting on Scroll
+            const sections = document.querySelectorAll('main section');
+            const navLinks = document.querySelectorAll('#main-header nav a.nav-link, #mobile-menu a.nav-link');
+            const headerOffset = document.getElementById('main-header').offsetHeight + 20; // Offset for sticky header
+
+            function changeNav() {
+                let index = sections.length;
+                while(--index && window.scrollY + headerOffset < sections[index].offsetTop) {}
+                
+                navLinks.forEach((link) => link.classList.remove('active-nav'));
+                // Check if a corresponding navLink exists before adding class
+                if (sections[index] && sections[index].id) {
+                    const activeLink = document.querySelector(`#main-header nav a[href="#${sections[index].id}"], #mobile-menu a[href="#${sections[index].id}"]`);
+                    if (activeLink) {
+                        activeLink.classList.add('active-nav');
+                    }
+                } else if (window.scrollY < sections[0].offsetTop - headerOffset) { // If above all sections
+                     navLinks.forEach((link) => link.classList.remove('active-nav'));
+                }
+            }
+            changeNav(); // Initial call
+            window.addEventListener('scroll', changeNav);
+
+
+            // Tab Functionality
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabPanes = document.querySelectorAll('.tab-pane');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const tabId = button.dataset.tab;
+
+                    tabButtons.forEach(btn => {
+                        btn.classList.remove('active-tab');
+                        btn.setAttribute('aria-selected', 'false');
+                    });
+                    button.classList.add('active-tab');
+                    button.setAttribute('aria-selected', 'true');
+
+                    tabPanes.forEach(pane => {
+                        if (pane.id === `${tabId}-content`) {
+                            pane.classList.remove('hidden');
+                        } else {
+                            pane.classList.add('hidden');
+                        }
+                    });
+                });
+            });
+
+            // Chart.js Radar Chart
+            const ctx = document.getElementById('progressRadarChart');
+            if (ctx) {
+                const radarChartData = {
+                    labels: ['Skating', 'Puck Skills', 'Shooting', 'Tactical', 'Compete', 'Coachability'],
+                    datasets: [{
+                        label: 'Player A',
+                        data: [8, 7, 9, 7, 8, 9],
+                        fill: true,
+                        backgroundColor: 'rgba(62, 142, 126, 0.2)', // Bright Teal transparent
+                        borderColor: '#3E8E7E', // Bright Teal
+                        pointBackgroundColor: '#3E8E7E',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: '#3E8E7E'
+                    }, {
+                        label: 'Team Average (Hidden)', // Example of another dataset
+                        data: [7, 6, 7, 6, 7, 7],
+                        fill: true,
+                        backgroundColor: 'rgba(244, 162, 97, 0.2)', // Vibrant Orange transparent
+                        borderColor: '#F4A261', // Vibrant Orange
+                        pointBackgroundColor: '#F4A261',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: '#F4A261',
+                        hidden: true // Initially hidden
+                    }]
+                };
+
+                const radarChartConfig = {
+                    type: 'radar',
+                    data: radarChartData,
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        elements: {
+                            line: {
+                                borderWidth: 2
+                            }
+                        },
+                        scales: {
+                            r: {
+                                angleLines: {
+                                    display: true
+                                },
+                                suggestedMin: 0,
+                                suggestedMax: 10,
+                                pointLabels: {
+                                    font: {
+                                        size: 10 // Smaller font for point labels
+                                    },
+                                    color: '#0A2463' // Dark Blue
+                                },
+                                ticks: {
+                                    stepSize: 2,
+                                    backdropColor: 'rgba(255, 255, 255, 0.75)' // Make ticks more readable
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                                labels: {
+                                    color: '#0A2463' // Dark Blue for legend
+                                }
+                            },
+                            tooltip: {
+                                enabled: true,
+                                callbacks: {
+                                    label: function(context) {
+                                        return context.dataset.label + ': ' + context.raw;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                };
+                const myRadarChart = new Chart(ctx, radarChartConfig);
+
+                // Dropdown to change chart data (example)
+                const playerSelect = document.getElementById('player-select');
+                if (playerSelect) {
+                    playerSelect.addEventListener('change', (event) => {
+                        const selectedValue = event.target.value;
+                        myRadarChart.data.datasets.forEach((dataset, index) => {
+                            if (selectedValue === 'playerA' && dataset.label === 'Player A') {
+                                dataset.hidden = false;
+                                dataset.data = [8, 7, 9, 7, 8, 9]; // Player A data
+                            } else if (selectedValue === 'playerB' && dataset.label === 'Player A') { // Re-use Player A dataset for Player B example
+                                dataset.hidden = false;
+                                dataset.data = [6, 8, 7, 9, 6, 8]; // Player B data
+                            } else if (selectedValue === 'teamAverage' && dataset.label === 'Team Average (Hidden)') {
+                                dataset.hidden = false;
+                            } else if (selectedValue === 'teamAverage' && dataset.label === 'Player A') { // Hide Player A if showing team average
+                                dataset.hidden = true;
+                            } else if (selectedValue !== 'teamAverage' && dataset.label === 'Team Average (Hidden)') {
+                                dataset.hidden = true;
+                            }
+                        });
+                        myRadarChart.update();
+                    });
+                }
+            }
+
+            // Custom list styling (using Tailwind, but can be enhanced with JS if needed)
+            document.querySelectorAll('.list-custom').forEach(ul => {
+                ul.querySelectorAll('li').forEach(li => {
+                    li.classList.add('relative', 'pl-6'); // Ensure padding for custom bullet
+                    const bullet = document.createElement('span');
+                    bullet.classList.add('absolute', 'left-0', 'top-1', 'text-[#3E8E7E]'); // Bright Teal
+                    bullet.innerHTML = '▹'; // Custom marker
+                    li.insertBefore(bullet, li.firstChild);
+                });
+            });
+
+            // Make stepper details collapsible for Yearly Plan
+            // (This is a basic implementation, you might want more robust accordion logic)
+            document.querySelectorAll('#yearly-plan details summary').forEach(summary => {
+                summary.addEventListener('click', (e) => {
+                    // Optional: Close other open details in the same section
+                    // const parentArticle = summary.closest('.stepper-item');
+                    // if (parentArticle) {
+                    //     parentArticle.parentElement.querySelectorAll('details[open]').forEach(openDetail => {
+                    //         if (openDetail !== summary.parentElement) {
+                    //             openDetail.removeAttribute('open');
+                    //         }
+                    //     });
+                    // }
+                });
+            });
+
+
+        });
+    </script>
+
+</body>
+</html>
